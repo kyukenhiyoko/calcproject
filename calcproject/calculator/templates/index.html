@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>計算アプリ</title>
+</head>
+<body>
+    <h1>簡単な計算アプリ</h1>
+    <form method="POST" action="{% url 'calculate' %}">
+        {% csrf_token %}
+        
+        <h3>1から3までの数字を入力してください（加算）:</h3>
+        <label>数値1: <input type="number" name="num1" required></label><br>
+        <label>数値2: <input type="number" name="num2" required></label><br>
+        <label>数値3: <input type="number" name="num3" required></label><br><br>
+
+        <h3>4, 5, 6の入力（日付を設定）:</h3>
+        <label>日付4: <input type="date" name="date4" required></label><br>
+        <label>日付5: <input type="date" name="date5" required></label><br>
+        <label>日付6: <input type="date" name="date6" required></label><br><br>
+
+        <h3>7, 8, 9の来月の期間:</h3>
+        <p>来月の日付は自動的に計算されます。</p><br>
+
+        <h3>10から12までの数字を入力してください（合算）:</h3>
+        <label>数値10: <input type="number" name="num10" required></label><br>
+        <label>数値11: <input type="number" name="num11" required></label><br>
+        <label>数値12: <input type="number" name="num12" required></label><br><br>
+
+        <h3>13, 14, 15の合算:</h3>
+        <label>数値13: <input type="number" name="num13" required></label><br>
+        <label>数値14: <input type="number" name="num14" required></label><br>
+        <label>数値15: <input type="number" name="num15" required></label><br><br>
+
+        <button type="submit">計算する</button>
+    </form>
+
+    {% if result %}
+        <h2>計算結果:</h2>
+        <h3>1から3の合算: {{ result.sum_1_to_3 }}</h3>
+        <h3>日付4: {{ result.dates.0 }}, 日付5: {{ result.dates.1 }}, 日付6: {{ result.dates.2 }}</h3>
+        <h3>来月の日付: {{ result.next_month_dates.0 }}, {{ result.next_month_dates.1 }}, {{ result.next_month_dates.2 }}</h3>
+        <h3>10から12の合算: {{ result.sum_10_to_12 }}</h3>
+        <h3>13から15の合算: {{ result.sum_13_to_15 }}</h3>
+    {% endif %}
+</body>
+</html>

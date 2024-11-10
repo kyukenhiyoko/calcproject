@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ログイン</title>
+</head>
+<body>
+    <h2>ログインページ</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">ユーザー名:</label>
+        <input type="text" name="username" required><br><br>
+
+        <label for="password">パスワード:</label>
+        <input type="password" name="password" required><br><br>
+
+        <button type="submit">ログイン</button>
+    </form>
+
+    {% if form.errors %}
+        <p>ログインに失敗しました。ユーザー名とパスワードを確認してください。</p>
+    {% endif %}
+</body>
+</html>

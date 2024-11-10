@@ -1,0 +1,17 @@
+<!-- calculator/templates/calculator/calculate.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>計算フォーム</title>
+</head>
+<body>
+    <h1>計算フォーム</h1>
+
+    <form method="POST" action="{% url 'calculate' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">計算する</button>
+        <button type="submit" name="pdf" value="true">PDF出力</button>
+    </form>
+</body>
+</html>

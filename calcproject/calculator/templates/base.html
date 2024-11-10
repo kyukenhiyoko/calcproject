@@ -1,0 +1,7 @@
+{% csrf_token %}
+{% if user.is_authenticated %}
+    <p>こんにちは、{{ user.username }}さん！</p>
+    <a href="{% url 'logout' %}">ログアウト</a>
+{% else %}
+    <a href="{% url 'login' %}">ログイン</a>
+{% endif %}

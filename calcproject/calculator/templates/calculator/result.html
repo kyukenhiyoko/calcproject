@@ -1,0 +1,32 @@
+<!-- calculator/templates/calculator/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>計算結果</title>
+</head>
+<body>
+    <h1>計算結果</h1>
+
+    <p>賃料: {{ result.rent }}</p>
+    <p>共益費: {{ result.maintenance }}</p>
+    <p>その他: {{ result.others }}</p>
+    <p>1から3の合計: {{ result.total_1_to_3 }}</p>
+
+    <p>当月日数: {{ result.days_this_month }}日 ({{ result.date_this_month }})</p>
+    <p>次月日数: {{ result.days_next_month }}日 ({{ result.date_next_month }})</p>
+    <p>当月と次月の合計: {{ result.total_months }}</p>
+
+    <p>敷金: {{ result.total_6_to_12 }}</p>
+    <p>仲介手数料: {{ result.broker_fee }}</p>
+    <p>紹介割引: {{ result.discount }}</p>
+    <p>その他費用: {{ result.other_fees }}</p>
+    <p>14から16の合計: {{ result.total_14_to_16 }}</p>
+    
+    <form method="POST" action="{% url 'calculate' %}">
+        {% csrf_token %}
+        <button type="submit">計算する</button>
+        <button type="submit" name="pdf" value="true">PDF出力</button>
+    </form>
+</body>
+</html>
+``

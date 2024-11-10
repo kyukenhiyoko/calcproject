@@ -1,0 +1,35 @@
+<!-- calculator/templates/calculator/pdf_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>計算結果 PDF</title>
+    <style>
+        @font-face {
+            font-family: 'NotoSans';
+            src: url('../static/fonts/NotoSansCJK-Regular.ttc') format('truetype');
+        }
+        body {
+            font-family: 'NotoSans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>計算結果</h1>
+
+    <p>賃料: {{ rent }}</p>
+    <p>共益費: {{ maintenance }}</p>
+    <p>その他: {{ others }}</p>
+    <p>1から3の合計: {{ total_1_to_3 }}</p>
+
+    <p>当月日数: {{ days_this_month }}日</p>
+    <p>次月日数: {{ days_next_month }}日</p>
+    <p>当月と次月の合計: {{ total_months }}</p>
+
+    <p>敷金: {{ total_6_to_12 }}</p>
+    <p>仲介手数料: {{ broker_fee }}</p>
+    <p>紹介割引: {{ discount }}</p>
+    <p>その他費用: {{ other_fees }}</p>
+    <p>14から16の合計: {{ total_14_to_16 }}</p>
+</body>
+</html>
